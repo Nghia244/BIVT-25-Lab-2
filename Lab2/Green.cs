@@ -25,17 +25,10 @@ namespace Lab2
             double answer = 0;
 
             // code here
-            double a = 1;
-            for (int i = 1; i <= n; i++)
+            for (int i = 0; i <= n; i++)
             {
-                a *= x;
-                answer += 1 / a;
-
+                answer += 1 / Math.Pow(x, i);
             }
-
-            answer++;
-
-
             // end
 
             return answer;
@@ -45,20 +38,12 @@ namespace Lab2
             long answer = 0;
 
             // code here
-            int a = 1;
-            long b = 1;
-            for (int i = 1; i <= a; i++)
+            long fact = 1;
+            for (int i = 0; i <= n; i++)
             {
-                b *= a;
-                answer += b;
-                a++;
-                if ((a == n + 1)|| n==0)
-                {
-                    break;
-                }
+                if (i > 0) fact *= i;
+                answer += fact;
             }
-
-            if(n!=0) answer++;
 
             // end
 
@@ -69,18 +54,10 @@ namespace Lab2
             double answer = 0;
 
             // code here
-            int n = 1;
-            double y = x;
-            double a = Math.Sin(n * x);
-            while (true)
+            for (n = 1; Math.Abs(Math.Sin(n*Math.Pow(x, n))) <= Math.Pow(10, -4); n++) 
             {
-                answer += a;
-                n++;
-                y *= x;
-                a = Math.Sin(n * y);
-                if (Math.Abs(a) < E) break;
+                answer += Math.Sin(n*Math.Pow(x,n));
             }
-
             // end
 
             return answer;
@@ -179,3 +156,4 @@ namespace Lab2
     }
 
 }
+
